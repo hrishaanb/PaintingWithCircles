@@ -12,14 +12,6 @@ function my_MouseDown (e) {
     radius = document.getElementById("radius").value;
     mouseEvent = "mousedown";
 }
-canvas.addEventListener("mouseup", my_MouseUp);
-function my_MouseUp (e) {
-    mouseEvent = "mouseup";
-}
-canvas.addEventListener("mouseleave", my_MouseLeave);
-function my_MouseLeave (e) {
-    mouseEvent = "mouseleave";
-}
 canvas.addEventListener("mousemove", my_MouseMove);
 function my_MouseMove (e) {
     mouse_x = e.clientX-canvas.offsetLeft;
@@ -31,6 +23,14 @@ function my_MouseMove (e) {
         ctx.arc(mouse_x, mouse_y, radius, 0, 2 * Math.PI);
         ctx.stroke();
     }
+}
+canvas.addEventListener("mouseup", my_MouseUp);
+function my_MouseUp (e) {
+    mouseEvent = "mouseup";
+}
+canvas.addEventListener("mouseleave", my_MouseLeave);
+function my_MouseLeave (e) {
+    mouseEvent = "mouseleave";
 }
 function clearArea () {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
